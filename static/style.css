@@ -15,8 +15,6 @@
 
 }
 
-
-
 .modal {
     position: fixed; /* we want the modal to follow */
     top: 50%;
@@ -47,8 +45,6 @@
     font-size: 1.25rem;
     font-weight: bold;
 }
-
-
 
 .modal-header .close-button {
     cursor: pointer;

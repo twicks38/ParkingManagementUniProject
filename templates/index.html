@@ -3,7 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Parking Management</title>
+   <title>Book Your Space - Parking Management</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
@@ -14,20 +14,23 @@
             <div class = "title">Space Info </div>
             <button data-close-button class = "close-button">&times;</button>
         </div>
-        <div class = "modal-body">
-            <div>
-                 <label for="time-input">What time do you want this booking for:</label>
-                <input type="time" id="time-input" value="1" min="1" max="24">
-            </div>
-            <div class="time-selection">
-                <label for="hours-input">How many hours would you like to reserve this space for:</label>
-                <input type="number" id="hours-input" value="1">
-            </div>
-            <div>
-                <label for="date-booked"> Select the date you want to make the booking: </label>
-                <input type ="date" id="date-booked" name = "booking date" min="2026-03-20">
-            </div>
-            <button id="book-btn">Reserve Space</button>
+        <div class="modal-body">
+            <form action="/submit" method="POST">
+                <div>
+                    <label>What time:</label>
+                    <input type="time" name="time">
+                </div>
+                <div>
+                    <label>How many hours:</label>
+                    <input type="number" name="hours" value="1">
+                </div>
+                <div>
+                    <label>Date:</label>
+                    <input type="date" name="date">
+                </div>
+                    <button type = "submit">Reserve Space</button>
+
+            </form>
         </div>
     </div>
     <div id = "overlay"></div>
