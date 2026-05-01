@@ -3,7 +3,7 @@ const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 const bookBtn = document.getElementById('book-btn')
 const parkingBtn = document.getElementById('parking-button')
-
+const dateBooked = document.getElementById('date-booked')
 
 
 openModalButtons.forEach(button => {

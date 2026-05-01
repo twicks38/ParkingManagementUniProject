@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Main Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <b>PlanToPark</b>
+        <a href="{{ url_for('prevbookings') }}" class="nav-bookings">
+            <img src="static/assets/calendaricon.png" alt="Previous bookings">
+        </a>
+    </div>
+
+    <h1 class="title">Venues</h1>
+    <p class="subtitle">Explore popular venues around Newcastle</p>
+
+    <div class="venues">
+        <div class="venue-card">
+            <img src="static/assets/MetroCentre.jpg" alt="MetroCentre">
+            <div class="venue-info">
+                <h4><b>MetroCentre</b></h4>
+                <p>Gateshead</p>
+                <p>NE11 9YG</p>
+                <a href="{{ url_for('index') }}"><button class="location-button">View Location</button></a>
+            </div>
+        </div>
+        <div class="venue-card">
+            <img src="static/assets/NewcastleCollege.jpg" alt="MetroCentre">
+            <div class="venue-info">
+                <h4><b>Newcastle College</b></h4>
+                <p>Scotswood Road</p>
+                <p>NE4 7SA</p>
+                <a href="{{ url_for('index') }}"><button class="location-button">View Location</button></a>
+            </div>
+        </div>
+        <div class="venue-card">
+            <img src="static/assets/StJamesPark.png" alt="MetroCentre">
+            <div class="venue-info">
+                <h4><b>St. James Park</b></h4>
+                <p>Barrack Road</p>
+                <p>NE1 4ST</p>
+                <a href="{{ url_for('index') }}"><button class="location-button">View Location</button></a>
+            </div>
+        </div>
+        <div class="venue-card">
+            <img src="static/assets/CentreForLife.jpg" alt="MetroCentre">
+            <div class="venue-info">
+                <h4><b>Centre For Life</b></h4>
+                <p>Times Square</p>
+                <p>NE1 4EP</p>
+                <a href="{{ url_for('index') }}"><button class="location-button">View Location</button></a>
+            </div>
+        </div>
+    </div>
+{#HELLP#}
+
+
+</body>
+</html>
