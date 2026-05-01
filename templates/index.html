@@ -5,9 +5,17 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Parking Management</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 <body>
+    <div class="navbar">
+        <a href="{{ url_for('mainmenu') }}" class="nav-home">
+            <img src="static/assets/homeicon.png" alt="Home">
+        </a>
+        <a href="{{ url_for('prevbookings') }}" class="nav-bookings">
+            <img src="static/assets/calendaricon.png" alt="Previous bookings">
+        </a>
+    </div>
+
     <button data-modal-target="#modal" class = "parking-button" id = "parking-button"> Parking Space</button>
     <div class ="modal" id="modal">
         <div class = "modal-header">
