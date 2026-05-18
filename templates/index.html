@@ -8,6 +8,8 @@
 
 </head>
 <body>
+
+<!-- Calling the navbar and managing navigation -->
     <div class="navbar">
         <a href="{{ url_for('mainmenu') }}" class="nav-home">
             <img src="static/assets/homeicon.png" alt="Home">
@@ -16,62 +18,10 @@
             <img src="static/assets/calendaricon.png" alt="Previous bookings">
         </a>
     </div>
-</body>
+<!-- we call the parking container and overlay from the scripts.js file-->
+    <div id="parking-container"></div>
+    <div id="overlay"></div>
   <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
-
-<!--<body>-->
-<!--    <button data-modal-target="#modal" class = "parking-button" id = "parking-button"> Parking Space</button>-->
-<!--    <div class ="modal" id="modal">-->
-<!--        <div class = "modal-header">-->
-<!--            <div class = "title">Space Info </div>-->
-<!--            <button data-close-button class = "close-button">&times;</button>-->
-<!--        </div>-->
-<!--        <div class = "modal-body">-->
-<!--            <div>-->
-<!--                 <label for="time-input">What time do you want this booking for:</label>-->
-<!--                <input type="time" id="time-input" value="1" min="1" max="24">-->
-<!--            </div>-->
-<!--            <div class="time-selection">-->
-<!--                <label for="hours-input">How many hours would you like to reserve this space for:</label>-->
-<!--                <input type="number" id="hours-input" value="1">-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <label for="date-booked"> Select the date you want to make the booking: </label>-->
-<!--                <input type ="date" id="date-booked" name = "booking date" min="2026-03-20">-->
-<!--            </div>-->
-<!--            <button id="book-btn">Reserve Space</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div id = "overlay"></div>-->
-
-<!--<div>-->
-<!--        <button data-modal-target="#modal" class = "parking-button" id = "parking-button"> Parking Space</button>-->
-<!--    <div class ="modal" id="modal">-->
-<!--        <div class = "modal-header">-->
-<!--            <div class = "title">Space Info </div>-->
-<!--            <button data-close-button class = "close-button">&times;</button>-->
-<!--        </div>-->
-<!--        <div class = "modal-body">-->
-<!--            <div>-->
-<!--                 <label for="time-input">What time do you want this booking for:</label>-->
-<!--                <input type="time" id="time-input" value="1" min="1" max="24">-->
-<!--            </div>-->
-<!--            <div class="time-selection">-->
-<!--                <label for="hours-input">How many hours would you like to reserve this space for:</label>-->
-<!--                <input type="number" id="hours-input" value="1">-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <label for="date-booked"> Select the date you want to make the booking: </label>-->
-<!--                <input type ="date" id="date-booked" name = "booking date" min="2026-03-20">-->
-<!--            </div>-->
-<!--            <button id="book-btn">Reserve Space</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div id = "overlay"></div>-->
-
-<!--</div>-->
-
-<!--</body>-->
 
