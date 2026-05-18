@@ -3,10 +3,13 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Book Your Space - Parking Management</title>
+   <title>Parking Management</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
+
+<!-- Calling the navbar and managing navigation -->
     <div class="navbar">
         <a href="{{ url_for('mainmenu') }}" class="nav-home">
             <img src="static/assets/homeicon.png" alt="Home">
@@ -15,33 +18,10 @@
             <img src="static/assets/calendaricon.png" alt="Previous bookings">
         </a>
     </div>
-
-    <button data-modal-target="#modal" class = "parking-button" id = "parking-button"> Parking Space</button>
-    <div class ="modal" id="modal">
-        <div class = "modal-header">
-            <div class = "title">Space Info </div>
-            <button data-close-button class = "close-button">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form action="/submit" method="POST">
-                <div>
-                    <label>What time:</label>
-                    <input type="time" name="time">
-                </div>
-                <div>
-                    <label>How many hours:</label>
-                    <input type="number" name="hours" value="1">
-                </div>
-                <div>
-                    <label>Date:</label>
-                    <input type="date" name="date">
-                </div>
-                    <button type = "submit">Reserve Space</button>
-
-            </form>
-        </div>
-    </div>
-    <div id = "overlay"></div>
-</body>
+<!-- we call the parking container and overlay from the scripts.js file-->
+    <div id="parking-container"></div>
+    <div id="overlay"></div>
   <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
 </html>
+
