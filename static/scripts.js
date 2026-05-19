@@ -86,13 +86,30 @@ class ParkingSpace {
     }
 
     toggleBooking() {
+        const time = this.element.querySelector('input[type="time"]').value
+        const hours = this.element.querySelector('input[type="number"]').value
+        const date = this.element.querySelector('input[type="date"]').value
+
+        if (time === "" || date === "") {
+            alert("Please enter a date and time")
+            return
+        }
+
+        let startDateTime = new Date(date + "T" + time)
+        let now = new Date()
+
+        if (startDateTime < now) {
+            alert("Cannot book in the past")
+            return
+        }
+
+        if (hours > 12) {
+            alert("Maximum booking length is 12 hours")
+            return
+        }
         this.bookButton.classList.toggle("booked")
 
         if (this.bookButton.classList.contains("booked")) {
-            const time = this.element.querySelector('input[type="time"]').value
-            const hours = this.element.querySelector('input[type="number"]').value
-            const date = this.element.querySelector('input[type="date"]').value
-
             this.bookButton.textContent = "Reserved"
             this.parkingButton.style.border = "10px solid red"
 
@@ -125,3 +142,22 @@ for (let i = 0; i < 5; i++) {
     new ParkingSpace(i+1)
 }
 
+fetch("/get-bookings")
+    .then(r => r.json())
+    .then(bookings => {
+        bookings.forEach(b => {
+            let now = new Date()
+            const bookingTime = b[2]
+            const bookingDate = b[3]
+            const bookingHours = b[4]
+
+            let startDateTime = new Date(bookingDate + "T" + bookingTime)
+            let endDateTime = new Date(startDateTime)
+            endDateTime.setHours(endDateTime.getHours() + bookingHours)
+
+            if (now < endDateTime) {
+                document.querySelectorAll(".parking-button")[b[1]- 1]
+                  .style.border = "10px solid red"
+            }
+        })
+    })
