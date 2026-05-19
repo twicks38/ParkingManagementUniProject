@@ -34,7 +34,7 @@ def init_db():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 space_id INTEGER NOT NULL,
                 time TEXT NOT NULL,
-                date TEXT NOT NULL UNIQUE,
+                date TEXT NOT NULL,
                 hours INTEGER NOT NULL,
                 is_available CHECK (is_available IN (0, 1))
             )
@@ -119,8 +119,12 @@ def submit():
     date = request.form.get('date')
     hours = request.form.get('hours')
     space_id = request.form.get('passed_id')
-    insert_data(space_id,time, date, hours)
+    insert_data(time, date, hours, space_id)
     return f"{space_id}, {time}, {date}, {hours} saved to DB"
+
+@app.route('/get-bookings')
+def get_bookings():
+    return return_entire_database()
 
 if __name__ == '__main__':
     app.run(debug=True)
