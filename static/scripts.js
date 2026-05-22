@@ -71,6 +71,10 @@ class ParkingSpace {
         })
 
         this.bookButton.addEventListener('click', () => {
+            if (this.bookButton.classList.contains("booked")) {
+                alert("Existing Booking on this Space during the date/time set.")
+                return
+            }
             this.toggleBooking()
         })
     }
@@ -103,12 +107,16 @@ class ParkingSpace {
             return
         }
 
+        if (hours < 0) {
+            alert("Cannot have a negative booking length")
+        }
+
         if (hours > 12) {
             alert("Maximum booking length is 12 hours")
             return
         }
-        this.bookButton.classList.toggle("booked")
 
+        this.bookButton.classList.toggle("booked")
         if (this.bookButton.classList.contains("booked")) {
             this.bookButton.textContent = "Reserved"
             this.parkingButton.style.border = "10px solid red"
@@ -155,7 +163,7 @@ fetch("/get-bookings")
             let endDateTime = new Date(startDateTime)
             endDateTime.setHours(endDateTime.getHours() + bookingHours)
 
-            if (now < endDateTime) {
+            if (now > startDateTime && now < endDateTime) {
                 document.querySelectorAll(".parking-button")[b[1]- 1]
                   .style.border = "10px solid red"
             }
